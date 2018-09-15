@@ -1,6 +1,6 @@
-if(isUserModule.toBoolean()){
+if (isUserModule.toBoolean()) {
     apply plugin: 'com.android.library'
-}else{
+} else {
     apply plugin: 'com.android.application'
 }
 //apply plugin: 'com.android.application'
@@ -27,15 +27,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets{
-        main{
-            if(isUserModule.toBoolean()){
+    sourceSets {
+        main {
+            if (isUserModule.toBoolean()) {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
                 //release模式下排除debug文件夹中的所有java文件
-                java{
+                java {
                     exclude 'debug/**'
                 }
-            }else {
+            } else {
                 manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             }
         }
@@ -50,8 +50,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':provider')
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    api project(':provider')
 }
 
 apply plugin: 'kotlin-android-extensions'
