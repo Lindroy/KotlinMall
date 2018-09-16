@@ -21,8 +21,8 @@ class RegisterPresenter:BasePresenter<RegisterView> (){
         userService.register(mobile,verifyCode,pwd)
                 .excute(object :BaseSubscriber<Boolean>(mView){
                     override fun onNext(t: Boolean) {
-                        super.onNext(t)
-                        mView.onRegiterResult(t)
+//                        super.onNext(t)
+                        mView.onRegisterResult(t)
                     }
                 })
     }

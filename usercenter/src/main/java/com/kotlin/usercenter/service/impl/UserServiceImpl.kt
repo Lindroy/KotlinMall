@@ -17,7 +17,7 @@ class UserServiceImpl: UserService {
         val repository = UserRepository()
         return repository.register(mobile,pwd,verifyCode).flatMap(object:Func1<BaseResp<String>,Observable<Boolean>>{
             override fun call(t: BaseResp<String>): Observable<Boolean> {
-                if (t.status == 0){
+                if (t.status != 0){
                     return Observable.error(BaseException(t.status,t.message))
                 }
                 return Observable.just(true)

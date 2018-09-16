@@ -9,5 +9,5 @@ import com.kotlin.baselibrary.presenter.view.BaseView
  */
 interface RegisterView:BaseView {
 
-    fun onRegiterResult(isSuccess:Boolean)
+    fun onRegisterResult(isSuccess:Boolean)
 }
